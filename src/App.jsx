@@ -102,8 +102,14 @@ export default function App() {
       <FloatingBackground />
 
       {/* BACKGROUND LAYER 1: Blueprint Grid Overlay */}
-      <div className="fixed inset-0 opacity-[0.04] pointer-events-none z-[1]" style={{ backgroundImage: 'linear-gradient(#38bdf8 1px, transparent 1px), linear-gradient(90deg, #38bdf8 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-
+      <div 
+        className="fixed inset-0 opacity-[0.04] z-[1]" 
+        style={{ 
+          backgroundImage: 'linear-gradient(#38bdf8 1px, transparent 1px), linear-gradient(90deg, #38bdf8 1px, transparent 1px)', 
+          backgroundSize: '60px 60px',
+          pointerEvents: 'none' // CRITICAL
+        }} 
+      />
       {/* FOREGROUND LAYER 10: Navigation */}
       <nav className="fixed top-0 w-full z-50 px-6 md:px-12 py-8 flex justify-between items-center backdrop-blur-md border-b border-black/5">
         <h2 className={`font-mono text-[10px] tracking-[0.4em] font-bold uppercase ${isDark ? 'text-white' : 'text-slate-900'}`}>
@@ -116,6 +122,8 @@ export default function App() {
       </nav>
 
       {/* FOREGROUND LAYER 10: Main Content */}
+      <nav className="fixed top-0 w-full z-50 ...">...</nav>
+      <main className="max-w-4xl mx-auto ... relative z-10">...</main>
       <main className="max-w-4xl mx-auto px-6 pt-48 pb-32 relative z-10 text-left">
         <section className="mb-48">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sky-500 font-mono text-[10px] uppercase tracking-[0.4em] mb-6 font-bold underline underline-offset-8 decoration-sky-500/20">
