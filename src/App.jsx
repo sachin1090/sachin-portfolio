@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SYSDATA } from './data';
 import NetworkModule from './NetworkModule';
 import FloatingBackground from './FloatingBackground';
+import MediaCheck from './MediaCheck';
 
 // --- Terminal Pop-up Component ---
 const ConsoleModal = ({ isOpen, onClose }) => {
@@ -100,6 +101,24 @@ export default function App() {
       
       {/* BACKGROUND LAYER 0: Interactive IT Equipment */}
       <FloatingBackground />
+
+      export default function App() {
+  const [isDark, setIsDark] = useState(true);
+
+  return (
+    <div className={`relative min-h-screen ...`}>
+      
+      {/* SIDEBAR MODULES */}
+      <MediaCheck isDark={isDark} />
+      <FloatingBackground />
+
+      <div className="fixed inset-0 opacity-[0.04] pointer-events-none z-[1]" ... />
+      
+      <nav className="..."> ... </nav>
+      <main className="..."> ... </main>
+    </div>
+  );
+}
 
       {/* BACKGROUND LAYER 1: Blueprint Grid Overlay */}
       <div 
