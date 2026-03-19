@@ -19,22 +19,37 @@ const MediaCheck = ({ isDark }) => {
   }, [stream, isOpen]);
 
   const initHardware = async () => {
-    try {
-      const s = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-      setStream(s);
-      const ctx = new AudioContext();
-      analyser.current = ctx.createAnalyser();
-      ctx.createMediaStreamSource(s).connect(analyser.current);
-      const updateMic = () => {
-        if (!analyser.current) return;
-        const data = new Uint8Array(analyser.current.frequencyBinCount);
-        analyser.current.getByteFrequencyData(data);
-        setMicLevel(data.reduce((a, b) => a + b) / data.length);
-        requestAnimationFrame(updateMic);
-      };
-      updateMic();
-    } catch (e) { alert("Access Denied: Check Browser Permissions"); }
-  };
+  try {
+    const s = await navigator.mediaDevices.getUserMedia({ 
+      video: { width: 1280, height: 720 }, 
+      audio: true 
+    });
+    setStream(s);
+    
+    // Audio Context initialization after user gesture
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser.current = ctx.createAnalyser();
+    const source = ctx.createMediaStreamSource(s);
+    source.connect(analyser.current);
+
+    const updateMic = () => {
+      if (!analyser.current) return;
+      const data = new Uint8Array(analyser.current.frequencyBinCount);
+      analyser.current.getByteFrequencyData(data);
+      setMicLevel(data.reduce((a, b) => a + b) / data.length);
+      requestAnimationFrame(updateMic);
+    };
+    updateMic();
+  } catch (e) {
+    if (e.name === 'NotAllowedError') {
+      alert("SECURITY_ERR: Permission denied by user or browser policy.");
+    } else if (e.name === 'NotFoundError') {
+      alert("HARDWARE_ERR: No camera or microphone detected on this node.");
+    } else {
+      alert(`SYSTEM_ERR: ${e.message}`);
+    }
+  }
+};
 
   const startRecording = () => {
     setIsRecording(true);
