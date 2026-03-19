@@ -13,34 +13,33 @@ const IT_EQUIPMENT = [
 ];
 
 const FloatingItem = ({ item }) => {
-  // Random starting positions and floating speeds
-  const randomX = Math.random() * 100;
-  const randomY = Math.random() * 100;
-  const duration = 15 + Math.random() * 20;
+  const randomX = Math.random() * 85; 
+  const randomY = Math.random() * 85;
+  const duration = 20 + Math.random() * 25;
 
   return (
     <motion.div
       drag
-      dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-      dragElastic={0.2}
-      whileDrag={{ scale: 1.5, zIndex: 50 }}
-      initial={{ x: `${randomX}vw`, y: `${randomY}vh` }}
+      dragMomentum={false}
+      whileDrag={{ scale: 1.4, zIndex: 40 }}
+      initial={{ left: `${randomX}%`, top: `${randomY}%` }}
       animate={{
-        x: [`${randomX}vw`, `${(randomX + 10) % 100}vw`, `${randomX}vw`],
-        y: [`${randomY}vh`, `${(randomY + 15) % 100}vh`, `${randomY}vh`],
+        x: [0, 40, -40, 0],
+        y: [0, -50, 50, 0],
       }}
       transition={{
         duration: duration,
         repeat: Infinity,
         ease: "linear",
       }}
-      className="absolute cursor-grab active:cursor-grabbing select-none p-4 group"
+      style={{ position: 'absolute', zIndex: 10 }}
+      className="cursor-grab active:cursor-grabbing select-none p-4 group"
     >
-      <div className="flex flex-col items-center gap-1 opacity-20 group-hover:opacity-100 transition-opacity">
-        <span className="text-3xl filter grayscale group-hover:grayscale-0 transition-all drop-shadow-2xl">
+      <div className="flex flex-col items-center gap-1 opacity-25 hover:opacity-100 transition-opacity duration-500">
+        <span className="text-4xl drop-shadow-[0_0_15px_rgba(56,189,248,0.4)]">
           {item.icon}
         </span>
-        <span className="font-mono text-[8px] uppercase tracking-tighter text-sky-500 hidden group-hover:block">
+        <span className="font-mono text-[9px] uppercase tracking-tighter text-sky-500 bg-black/40 px-1 rounded">
           {item.label}
         </span>
       </div>
@@ -50,11 +49,12 @@ const FloatingItem = ({ item }) => {
 
 const FloatingBackground = () => {
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-auto z-0">
-      {/* We repeat the items to fill the background space */}
-      {[...IT_EQUIPMENT, ...IT_EQUIPMENT].map((item, index) => (
-        <FloatingItem key={index} item={item} />
-      ))}
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div className="relative w-full h-full pointer-events-auto">
+        {[...IT_EQUIPMENT, ...IT_EQUIPMENT].map((item, index) => (
+          <FloatingItem key={index} item={item} />
+        ))}
+      </div>
     </div>
   );
 };
