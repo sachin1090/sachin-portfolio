@@ -2,68 +2,42 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const IT_EQUIPMENT = [
-  { icon: "☁️", label: "GCP_Cloud" },
-  { icon: "🖥️", label: "Proxmox_Node" },
+  { icon: "☁️", label: "GCP_Node" },
   { icon: "🛡️", label: "ISO_27001" },
-  { icon: "🔌", label: "Cisco_Link" },
-  { icon: "💾", label: "Backup_Storage" },
-  { icon: "🔒", label: "Sophos_Firewall" },
-  { icon: "🚀", label: "Automation_Script" },
-  { icon: "📦", label: "Container" },
+  { icon: "🔒", label: "Encrypted" },
+  { icon: "📡", label: "Ping_Active" },
 ];
 
-const FloatingItem = ({ item }) => {
-  const randomX = Math.random() * 80 + 10; 
-  const randomY = Math.random() * 80 + 10;
-  const duration = 25 + Math.random() * 20;
+const FloatingItem = ({ index }) => {
+  const item = IT_EQUIPMENT[index % IT_EQUIPMENT.length];
+  const startX = Math.random() * 90 + 5;
+  const duration = 30 + Math.random() * 20;
 
   return (
     <motion.div
       drag
-      dragMomentum={true}
-      whileDrag={{ scale: 1.4, zIndex: 999 }}
-      initial={{ left: `${randomX}%`, top: `${randomY}%` }}
-      animate={{
-        x: [0, 50, -50, 0],
-        y: [0, -60, 60, 0],
+      dragMomentum={false}
+      initial={{ top: -50, left: `${startX}%`, opacity: 0 }}
+      animate={{ 
+        top: ['-5%', '105%'],
+        opacity: [0, 0.15, 0.15, 0],
       }}
-      transition={{
-        duration: duration,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-      style={{ 
-        position: 'absolute', 
-        zIndex: 10,
-        pointerEvents: 'auto' // CRITICAL: Makes icon clickable
-      }}
-      className="cursor-grab active:cursor-grabbing select-none p-4 group"
+      transition={{ duration, repeat: Infinity, ease: "linear", delay: index * 5 }}
+      style={{ position: 'absolute', pointerEvents: 'auto', zIndex: 1 }}
+      className="cursor-grab active:cursor-grabbing select-none p-4"
     >
-      <div className="flex flex-col items-center gap-1 opacity-40 hover:opacity-100 transition-opacity duration-300">
-        <span className="text-4xl drop-shadow-[0_0_15px_rgba(56,189,248,0.5)]">
-          {item.icon}
-        </span>
-        <span className="font-mono text-[9px] uppercase tracking-tighter text-sky-400 bg-black/60 px-2 py-0.5 rounded border border-sky-500/20">
-          {item.label}
-        </span>
+      <div className="flex flex-col items-center gap-1 grayscale hover:grayscale-0 transition-all">
+        <span className="text-2xl opacity-40 group-hover:opacity-100">{item.icon}</span>
+        <span className="font-mono text-[7px] uppercase tracking-widest text-sky-500/50">{item.label}</span>
       </div>
     </motion.div>
   );
 };
 
-const FloatingBackground = () => {
+export default function FloatingBackground() {
   return (
-    <div 
-      className="fixed inset-0 overflow-hidden z-0"
-      style={{ pointerEvents: 'none' }} // CRITICAL: Allows clicks to pass to content
-    >
-      <div className="relative w-full h-full">
-        {[...IT_EQUIPMENT, ...IT_EQUIPMENT].map((item, index) => (
-          <FloatingItem key={index} item={item} />
-        ))}
-      </div>
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      {[...Array(6)].map((_, i) => <FloatingItem key={i} index={i} />)}
     </div>
   );
-};
-
-export default FloatingBackground;
+}
