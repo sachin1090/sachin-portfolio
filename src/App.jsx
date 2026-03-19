@@ -75,7 +75,14 @@ const ConsoleModal = ({ isOpen, onClose }) => {
           ))}
           <div className="flex gap-2 text-white">
             <span>$</span>
-            <input className="bg-transparent outline-none flex-1 text-white" value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleCmd} autoFocus spellCheck="false" />
+            <input 
+              className="bg-transparent outline-none flex-1 text-white" 
+              value={input} 
+              onChange={e => setInput(e.target.value)} 
+              onKeyDown={handleCmd} 
+              autoFocus 
+              spellCheck="false" 
+            />
           </div>
           <div ref={scrollRef} />
         </div>
@@ -99,37 +106,22 @@ export default function App() {
   return (
     <div className={`relative min-h-screen transition-colors duration-700 ${isDark ? 'bg-[#0f172a] text-slate-300' : 'bg-[#f8fafc] text-slate-600'}`}>
       
-      {/* BACKGROUND LAYER 0: Interactive IT Equipment */}
+      {/* LAYER 0: Background Interactivity */}
       <FloatingBackground />
 
-      export default function App() {
-  const [isDark, setIsDark] = useState(true);
-
-  return (
-    <div className={`relative min-h-screen ...`}>
-      
-      {/* SIDEBAR MODULES */}
-      <MediaCheck isDark={isDark} />
-      <FloatingBackground />
-
-      <div className="fixed inset-0 opacity-[0.04] pointer-events-none z-[1]" ... />
-      
-      <nav className="..."> ... </nav>
-      <main className="..."> ... </main>
-    </div>
-  );
-}
-
-      {/* BACKGROUND LAYER 1: Blueprint Grid Overlay */}
+      {/* LAYER 1: Blueprint Grid Overlay (Fixed to not block icons) */}
       <div 
-        className="fixed inset-0 opacity-[0.04] z-[1]" 
+        className="fixed inset-0 opacity-[0.04] z-[1] pointer-events-none" 
         style={{ 
           backgroundImage: 'linear-gradient(#38bdf8 1px, transparent 1px), linear-gradient(90deg, #38bdf8 1px, transparent 1px)', 
-          backgroundSize: '60px 60px',
-          pointerEvents: 'none' // CRITICAL
+          backgroundSize: '60px 60px'
         }} 
       />
-      {/* FOREGROUND LAYER 10: Navigation */}
+
+      {/* LAYER 60: Sidebar Media Check */}
+      <MediaCheck isDark={isDark} />
+
+      {/* LAYER 50: Navigation */}
       <nav className="fixed top-0 w-full z-50 px-6 md:px-12 py-8 flex justify-between items-center backdrop-blur-md border-b border-black/5">
         <h2 className={`font-mono text-[10px] tracking-[0.4em] font-bold uppercase ${isDark ? 'text-white' : 'text-slate-900'}`}>
           {SYSDATA.name} // SYS_ADMIN
@@ -140,29 +132,27 @@ export default function App() {
         </div>
       </nav>
 
-      {/* FOREGROUND LAYER 10: Main Content */}
-      <nav className="fixed top-0 w-full z-50 ...">...</nav>
-      <main className="max-w-4xl mx-auto ... relative z-10">...</main>
+      {/* LAYER 10: Main Content */}
       <main className="max-w-4xl mx-auto px-6 pt-48 pb-32 relative z-10 text-left">
         <section className="mb-48">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sky-500 font-mono text-[10px] uppercase tracking-[0.4em] mb-6 font-bold underline underline-offset-8 decoration-sky-500/20">
             Infrastructure_Manifesto
           </motion.p>
           <h1 className={`text-5xl md:text-8xl font-bold uppercase tracking-tighter leading-[0.95] mb-12 ${isDark ? 'text-white' : 'text-slate-900'}`}>
-            {SYSDATA.quote} [cite: 1]
+            {SYSDATA.quote}
           </h1>
 
-          {/* Draggable Network Diagnostic Module */}
+          {/* Network Diagnostic Module */}
           <div className="max-w-2xl mt-12 mb-20 relative z-20">
             <NetworkModule isDark={isDark} />
           </div>
 
           <p className="max-w-2xl text-lg md:text-xl opacity-70 leading-relaxed font-medium">
-            {SYSDATA.summary} [cite: 4, 19]
+            {SYSDATA.summary}
           </p>
         </section>
 
-        {/* Professional Experience Section */}
+        {/* Experience Section */}
         <section className="space-y-40">
           <h2 className="font-mono text-[10px] tracking-[0.6em] uppercase text-sky-500 font-bold mb-12">// Tenure_Logs</h2>
           {SYSDATA.experience.map((job, i) => (
@@ -193,16 +183,16 @@ export default function App() {
         </section>
       </main>
 
-      {/* OVERLAY LAYER 100: Console Modal */}
+      {/* LAYER 100: Console Overlay */}
       <AnimatePresence>
         {isConsoleOpen && <ConsoleModal isOpen={isConsoleOpen} onClose={() => setConsoleOpen(false)} />}
       </AnimatePresence>
 
-      {/* Footer Section */}
+      {/* Footer */}
       <footer className={`py-20 border-t relative z-10 ${isDark ? 'border-white/5 bg-black/20' : 'border-slate-200 bg-slate-50'}`}>
         <div className="max-w-4xl mx-auto px-6 flex justify-between items-center opacity-40 font-mono text-[9px] uppercase tracking-[0.6em]">
-          <span>© 2026 Sachin Pandey [cite: 1]</span>
-          <span>Security_Compliant // ISO_27001 [cite: 25]</span>
+          <span>© 2026 Sachin Pandey</span>
+          <span>Security_Compliant // ISO_27001</span>
         </div>
       </footer>
     </div>
