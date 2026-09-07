@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Local-only: exported session transcript and Windows shortcuts.
+# Shortcuts embed absolute machine paths; regenerate with `npm run chat`.
+chat/
+*.lnk
+
 # Personal documents — the repo is public once it's on GitHub.
 # Delete this line if you want the CV tracked (and put it in public/ to serve it).
 Sachin_Pandey.pdf

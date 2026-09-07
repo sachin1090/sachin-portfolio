@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "cv": "node scripts/build-cv.mjs",
+    "chat": "node scripts/export-chat.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
