@@ -1,10 +1,48 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sachin-portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>Sachin Pandey — Senior System Administrator</title>
+    <meta
+      name="description"
+      content="Senior System Administrator with 8+ years owning enterprise IT infrastructure across cloud, virtualization, networking and security — with six ISO management systems implemented end to end."
+    />
+    <meta name="author" content="Sachin Pandey" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f5f7fb" media="(prefers-color-scheme: light)" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Sachin Pandey — Senior System Administrator" />
+    <meta
+      property="og:description"
+      content="Infrastructure, security and compliance. ISO 9001, 14001, 27001, 27017, 27018 and 42001 implemented end to end."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Apply the saved theme before first paint so there is no flash. -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('sp-theme');
+          var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          var dark = saved ? saved === 'dark' : !prefersLight;
+          document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (e) {
+          /* keep the default dark class */
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

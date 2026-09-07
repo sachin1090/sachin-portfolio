@@ -12,11 +12,17 @@ dist
 dist-ssr
 *.local
 
+# Personal documents — the repo is public once it's on GitHub.
+# Delete this line if you want the CV tracked (and put it in public/ to serve it).
+Sachin_Pandey.pdf
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+desktop.ini
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
