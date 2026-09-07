@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { CERTIFICATIONS, EXPERIENCE, PROFILE, TOOLKIT } from '../data';
+import {
+  CERTIFICATIONS,
+  COMPETENCIES,
+  EDUCATION,
+  EXPERIENCE,
+  PLATFORMS,
+  PROFILE,
+  TOOLKIT,
+} from '../data';
 import { IconClose } from './Icons';
 
 const BANNER = [
@@ -13,14 +21,26 @@ function buildCommands({ close, toggleTheme }) {
     help: () => [
       'Available commands:',
       '  whoami      profile summary',
+      '  core        core competencies',
       '  certs       ISO standards implemented',
       '  exp         career history',
-      '  skills      toolkit by domain',
+      '  skills      technical skills by domain',
+      '  stack       named platforms and tools',
+      '  edu         education',
       '  contact     how to reach me',
       '  uptime      years in the field',
       '  theme       toggle light / dark',
       '  clear       wipe the buffer',
       '  exit        close the console',
+    ],
+
+    core: () => COMPETENCIES.map((c) => `  • ${c.title} — ${c.note}`),
+
+    stack: () => [PLATFORMS.join(', ')],
+
+    edu: () => [
+      EDUCATION.degree,
+      `  ${EDUCATION.institution} · ${EDUCATION.university} — ${EDUCATION.year}`,
     ],
 
     whoami: () => [`${PROFILE.name} — ${PROFILE.role}`, PROFILE.location, '', PROFILE.summary],
@@ -35,7 +55,12 @@ function buildCommands({ close, toggleTheme }) {
 
     skills: () => TOOLKIT.flatMap((g) => [`${g.group}:`, `  ${g.items.join(', ')}`]),
 
-    contact: () => [`email     ${PROFILE.email}`, `linkedin  ${PROFILE.linkedin}`],
+    contact: () => [
+      `email     ${PROFILE.email}`,
+      `phone     ${PROFILE.phone}`,
+      `linkedin  ${PROFILE.linkedin}`,
+      `location  ${PROFILE.location}`,
+    ],
 
     uptime: () => ['up 8+ years, 0 unplanned career outages, load average: healthy'],
 
@@ -44,7 +69,7 @@ function buildCommands({ close, toggleTheme }) {
       return ['Theme toggled.'];
     },
 
-    ls: () => ['certs/  exp/  skills/  contact.txt  README.md'],
+    ls: () => ['core/  certs/  exp/  skills/  stack/  edu/  contact.txt'],
 
     sudo: () => ['Nice try. This session is already running with the right privileges.'],
 

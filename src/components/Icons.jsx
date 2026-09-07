@@ -83,6 +83,12 @@ export const IconMenu = (p) => (
   </svg>
 );
 
+export const IconPhone = (p) => (
+  <svg {...base} {...p}>
+    <path d="M15.5 21C7.5 21 3 16.5 3 8.5V6a1 1 0 0 1 1-1h3.2a1 1 0 0 1 1 .8l.7 3a1 1 0 0 1-.4 1L7 11.2a12 12 0 0 0 5.8 5.8l1.4-1.5a1 1 0 0 1 1-.3l3 .7a1 1 0 0 1 .8 1V20a1 1 0 0 1-1 1Z" />
+  </svg>
+);
+
 export const IconPulse = (p) => (
   <svg {...base} {...p}>
     <path d="M3 12h4l2.5-6 5 12L17 12h4" />

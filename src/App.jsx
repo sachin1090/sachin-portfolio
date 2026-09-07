@@ -5,6 +5,7 @@ import useTheme from './hooks/useTheme';
 import Background from './components/Background';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
+import Competencies from './components/Competencies';
 import Certifications from './components/Certifications';
 import Experience from './components/Experience';
 import Toolkit from './components/Toolkit';
@@ -46,6 +47,7 @@ export default function App() {
 
       <main className="relative z-10">
         <Hero />
+        <Competencies />
         <Certifications />
         <Experience />
         <Toolkit />

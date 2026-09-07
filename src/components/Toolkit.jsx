@@ -1,4 +1,4 @@
-import { TOOLKIT } from '../data';
+import { PLATFORMS, TOOLKIT } from '../data';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
 
@@ -38,6 +38,26 @@ export default function Toolkit() {
             </Reveal>
           ))}
         </div>
+
+        {/* Named products, kept separate from the capability groups above */}
+        <Reveal delay={0.1}>
+          <div className="mt-12">
+            <div className="flex items-center gap-3 pb-6">
+              <span className="eyebrow text-faint">Platforms</span>
+              <span className="rule-fade h-px flex-1" />
+            </div>
+            <ul className="flex flex-wrap gap-2">
+              {PLATFORMS.map((p) => (
+                <li
+                  key={p}
+                  className="rounded-full border border-edge bg-panel px-3.5 py-1.5 text-[0.8125rem] font-medium text-body transition-colors hover:border-edge-strong hover:text-title"
+                >
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

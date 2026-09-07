@@ -10,6 +10,8 @@ export const PROFILE = {
   discipline: "Cloud · Security · Automation",
   location: "Nepal",
   email: "sachinn.pandeyy@gmail.com",
+  phone: "+977 9860234601",
+  phoneHref: "tel:+9779860234601",
   linkedin: "https://www.linkedin.com/in/sachinn-pandeyy/",
   quote: "If a person could be ISO certified, I'd be the first.",
   summary:
@@ -23,6 +25,18 @@ export const STATS = [
   { value: "6", label: "ISO standards implemented" },
   { value: "3", label: "Organisations supported" },
   { value: "Sole", label: "Owner of IT & security ops" },
+];
+
+/** Core competencies — the eight areas of ownership, shown as a band under the hero. */
+export const COMPETENCIES = [
+  { title: "System administration & operations", note: "Infrastructure ownership end to end" },
+  { title: "Cloud infrastructure & IAM", note: "Google Cloud, AWS, Azure" },
+  { title: "Virtualization & capacity planning", note: "Proxmox VE, VM lifecycle" },
+  { title: "Backup & disaster recovery", note: "Architecture, encryption, tested restores" },
+  { title: "Security architecture & compliance", note: "ISO 27001 ISMS, risk treatment" },
+  { title: "Infrastructure automation", note: "Bash, Python, Make.com, Zapier" },
+  { title: "Network architecture & firewalls", note: "LAN/WAN, routing, VPN, VoIP" },
+  { title: "IT asset & platform administration", note: "Lifecycle tracking, SaaS estate" },
 ];
 
 /**
@@ -59,8 +73,8 @@ export const CERTIFICATIONS = [
     title: "Information Security Management System",
     abbr: "ISMS",
     blurb:
-      "Led a full ISMS implementation: risk assessment and treatment, Annex A control selection, internal security training, and audit readiness.",
-    focus: ["Risk treatment", "Annex A controls", "Internal audit"],
+      "Led a full ISMS implementation as certified Lead Implementer: risk assessment and treatment, Annex A control selection, internal security training, and audit readiness.",
+    focus: ["Lead Implementer", "Risk treatment", "Annex A controls"],
     tone: "sky",
     flagship: true,
   },
@@ -149,42 +163,93 @@ export const EXPERIENCE = [
 
 export const TOOLKIT = [
   {
+    group: "System administration",
+    items: ["Infrastructure ownership", "Patching & change management", "Access control", "Monitoring", "Capacity planning"],
+  },
+  {
     group: "Cloud & virtualization",
     items: [
-      "Google Cloud — Compute, Storage, IAM",
+      "Google Cloud — Compute, Networking, Storage, IAM",
       "AWS",
       "Microsoft Azure",
       "Proxmox VE",
-      "VM lifecycle & capacity planning",
+      "VM lifecycle management",
     ],
   },
   {
-    group: "Systems & operating systems",
-    items: ["Linux (Ubuntu, Debian, CentOS)", "Windows Server", "Windows 10 / 11", "Patching & change management"],
+    group: "Operating systems",
+    items: ["Linux — Ubuntu, Debian, CentOS", "Windows Server", "Windows 10 / 11", "Linux CLI & shell tooling"],
   },
   {
-    group: "Backup & disaster recovery",
-    items: ["Backup architecture design", "Encrypted backups", "Snapshot strategy", "Restoration testing", "DR planning"],
+    group: "Backup & recovery",
+    items: [
+      "Backup architecture design",
+      "Encrypted backups",
+      "Snapshot strategy",
+      "Restoration testing",
+      "Disaster recovery planning",
+    ],
   },
   {
     group: "Security & compliance",
-    items: ["ISO 27001:2022 ISMS", "Risk assessments", "Vulnerability mitigation", "Security architecture", "Internal training"],
-  },
-  {
-    group: "Networking & identity",
     items: [
-      "LAN / WAN architecture",
-      "Routing & switching",
-      "Firewall policy design",
-      "VPNs & VoIP",
-      "Google Workspace, Entra ID, AD & RBAC",
+      "ISO 27001:2022 Lead Implementer",
+      "ISMS operation",
+      "Risk assessments",
+      "Vulnerability mitigation",
+      "Security architecture",
     ],
   },
   {
-    group: "Automation & reporting",
-    items: ["Advanced Bash", "Python automation", "Make.com & Zapier", "cron scheduling", "Power BI dashboards"],
+    group: "Networking",
+    items: ["LAN / WAN architecture", "Routing & switching", "Firewall policy design", "VPNs", "VoIP platforms"],
+  },
+  {
+    group: "Identity & access",
+    items: ["Google Workspace Admin", "Active Directory", "Entra ID", "RBAC"],
+  },
+  {
+    group: "Automation & scripting",
+    items: ["Advanced Bash", "Python automation", "Make.com", "Zapier", "cron scheduling"],
+  },
+  {
+    group: "Monitoring & reporting",
+    items: [
+      "System health monitoring",
+      "Backup verification",
+      "Incident response",
+      "Power BI dashboards",
+      "Operational reporting",
+    ],
   },
 ];
+
+/** Named products and services, shown as a chip strip under the toolkit. */
+export const PLATFORMS = [
+  "Google Cloud Platform",
+  "Proxmox VE",
+  "Google Workspace Admin",
+  "Active Directory",
+  "Sophos Firewall",
+  "Cisco",
+  "Bash",
+  "Python",
+  "Make.com",
+  "Zapier",
+  "Power BI",
+  "AppSheet",
+  "ClickUp",
+  "Slack",
+  "VoIP platforms",
+  "Windows Admin utilities",
+];
+
+export const EDUCATION = {
+  degree: "BSc in Computer Science and Information Technology",
+  institution: "Kathmandu Bernhardt College",
+  university: "Tribhuvan University",
+  year: "2018",
+};
 
 export const NAV_LINKS = [
   { id: "certifications", label: "Certifications" },

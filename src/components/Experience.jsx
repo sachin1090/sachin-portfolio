@@ -1,4 +1,4 @@
-import { EXPERIENCE } from '../data';
+import { EDUCATION, EXPERIENCE } from '../data';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
 
@@ -84,6 +84,23 @@ export default function Experience() {
             </Reveal>
           ))}
         </ol>
+
+        <Reveal delay={0.1}>
+          <div className="surface mt-16 flex flex-col gap-5 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
+            <div>
+              <p className="eyebrow text-faint">Education</p>
+              <h3 className="mt-3 text-lg font-semibold tracking-tight text-title">
+                {EDUCATION.degree}
+              </h3>
+              <p className="mt-1.5 text-sm text-body">
+                {EDUCATION.institution} · {EDUCATION.university}
+              </p>
+            </div>
+            <span className="shrink-0 rounded-lg border border-edge bg-panel-2 px-3.5 py-2 font-mono text-sm font-semibold text-brand tabular-nums">
+              {EDUCATION.year}
+            </span>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

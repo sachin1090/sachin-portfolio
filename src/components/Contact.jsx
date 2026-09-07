@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { PROFILE } from '../data';
-import { IconArrow, IconCheck, IconCopy, IconLinkedIn, IconMail } from './Icons';
+import { IconArrow, IconCheck, IconCopy, IconLinkedIn, IconMail, IconPhone } from './Icons';
 import Reveal from './Reveal';
 
 export default function Contact() {
@@ -68,15 +68,24 @@ export default function Contact() {
                 </button>
               </div>
 
-              <a
-                href={PROFILE.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="link-underline mt-9 inline-flex items-center gap-2 text-sm font-medium text-faint transition-colors hover:text-title"
-              >
-                <IconLinkedIn width={14} height={14} />
-                Or connect on LinkedIn
-              </a>
+              <div className="mt-9 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+                <a
+                  href={PROFILE.phoneHref}
+                  className="link-underline inline-flex items-center gap-2 font-mono text-sm font-medium text-faint transition-colors hover:text-title"
+                >
+                  <IconPhone width={14} height={14} />
+                  {PROFILE.phone}
+                </a>
+                <a
+                  href={PROFILE.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-underline inline-flex items-center gap-2 text-sm font-medium text-faint transition-colors hover:text-title"
+                >
+                  <IconLinkedIn width={14} height={14} />
+                  Connect on LinkedIn
+                </a>
+              </div>
             </div>
           </div>
         </Reveal>
