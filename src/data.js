@@ -13,6 +13,8 @@ export const PROFILE = {
   phone: "+977 9860234601",
   phoneHref: "tel:+9779860234601",
   linkedin: "https://www.linkedin.com/in/sachinn-pandeyy/",
+  // Regenerate with: node scripts/build-cv.mjs  (source: cv/cv.html)
+  resume: "/Sachin_Pandey_CV.pdf",
   quote: "If a person could be ISO certified, I'd be the first.",
   summary:
     "Senior System Administrator with 8+ years owning and operating enterprise IT infrastructure across cloud, virtualization, security, and automation. Currently the sole administrator for a technology company — accountable for system availability, security posture, compliance, and scalability.",
@@ -120,16 +122,17 @@ export const EXPERIENCE = [
     period: "Aug 2023 — Present",
     current: true,
     blurb:
-      "Sole owner of IT infrastructure, security operations, and platform administration for a technology company.",
+      "Sole owner of IT infrastructure, security operations, and platform administration for a technology company — and the lead on its entire ISO management-system programme.",
     highlights: [
       "Own every layer of IT infrastructure, security operations, and platform administration.",
-      "Led the full ISO 27001:2022 ISMS implementation and ran internal security training across the company.",
+      "Led implementation of all six ISO management systems — 9001, 14001, 27001, 27017, 27018 and 42001 — covering quality, environment, information security, cloud security, cloud privacy, and AI governance.",
+      "Ran the integrated management system end to end: risk assessment and treatment, control selection, documented policy set, internal audit, and company-wide security training.",
       "Designed and operate Proxmox virtualization hosting business-critical systems.",
       "Architected secure backup, restoration, and disaster recovery processes with tested restores.",
       "Automated recurring workflows, cutting manual operations and operational cost.",
       "Built a centralised IT asset lifecycle management system.",
     ],
-    stack: ["Proxmox", "Multi-cloud", "ISO 27001", "Backup & DR", "Automation"],
+    stack: ["Proxmox", "Multi-cloud", "6 × ISO", "Backup & DR", "Automation"],
   },
   {
     company: "Foodmandu Pvt. Ltd.",

@@ -81,7 +81,7 @@ export default function Certifications() {
           index="01"
           eyebrow="Standards"
           title="Six ISO management systems, implemented end to end"
-          description="Not just certificates on a wall — each of these was scoped, risk-assessed, documented, and driven through internal audit and management review."
+          description="All six delivered as one integrated management-system programme at Intuji — scoped, risk-assessed, documented, and driven through internal audit and management review."
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

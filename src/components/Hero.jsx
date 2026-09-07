@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { CERTIFICATIONS, PROFILE, STATS } from '../data';
-import { IconArrow, IconLinkedIn, IconMail, IconShield } from './Icons';
+import { IconArrow, IconDownload, IconLinkedIn, IconMail, IconShield } from './Icons';
 import LatencyProbe from './LatencyProbe';
 
 const rise = {
@@ -85,6 +85,14 @@ export default function Hero() {
                 height={15}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
+            </a>
+            <a
+              href={PROFILE.resume}
+              download
+              className="inline-flex items-center gap-2.5 rounded-xl border border-edge bg-panel px-6 py-3.5 text-sm font-semibold text-title transition-colors hover:border-edge-strong"
+            >
+              <IconDownload width={15} height={15} />
+              Download CV
             </a>
             <a
               href={PROFILE.linkedin}
